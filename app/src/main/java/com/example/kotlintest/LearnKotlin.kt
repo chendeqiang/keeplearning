@@ -48,10 +48,10 @@ fun main(){
 //    for (fruit in list){
 //        println(fruit)
 //    }
-//    val map = mapOf("Apple" to 1,"Banana" to 2,"Orange" to 3,"Pear" to 4,"Grape" to 5)
-//    for ((fruit,number) in map){
-//        println("fruit is "+fruit+",number is "+number)
-//    }
+    val map = mapOf("Apple" to 1,"Banana" to 2,"Orange" to 3,"Pear" to 4,"Grape" to 5)
+    for ((fruit,number) in map){
+        println("fruit is "+fruit+",number is "+number)
+    }
 //    val maxLengthFruit= list.maxBy { it.length }
 //    println("max length fruit is "+maxLengthFruit)
 //    val newList = list.map { it.uppercase() }
@@ -76,7 +76,7 @@ fun main(){
     val money3= money1+money2
     val money4 = money3+20
 //    println(money3.value)
-    println(money4.value)
+    //println(money4.value)
 
 }
 

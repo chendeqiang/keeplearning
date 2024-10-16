@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.composetutorial.R
@@ -19,11 +20,16 @@ class SharedPreferencesMainActivity : AppCompatActivity() {
         binding = ActivitySharedPreferencesMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.saveButton.setOnClickListener {
-            val editor = getSharedPreferences("data", Context.MODE_PRIVATE).edit()
-            editor.putString("name","Tom")
-            editor.putInt("age",28)
-            editor.putBoolean("married",false)
-            editor.apply()
+            getSharedPreferences("data",Context.MODE_PRIVATE).edit {
+                putString("name","Tom")
+                putInt("age",28)
+                putBoolean("married",false)
+            }
+//            val editor = getSharedPreferences("data", Context.MODE_PRIVATE).edit()
+//            editor.putString("name","Tom")
+//            editor.putInt("age",28)
+//            editor.putBoolean("married",false)
+//            editor.apply()
         }
 
         binding.restoreButton.setOnClickListener {

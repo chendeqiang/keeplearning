@@ -2,7 +2,7 @@ package com.example.kotlintest
 
 /**
  * Created by deqiangchen on 2024/10/15.
-高阶函数 */
+kotlin高阶函数 */
 
 fun main(){
 //    val num1=100

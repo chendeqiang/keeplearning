@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,14 +14,20 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ComposeTutorial"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name="com.example.databasetest.DatabaseActivity"
-            android:theme="@style/Theme.AppCompat.Light"
-            android:exported="true">
+            android:name="com.example.materialtest.FruitInfoActivity"
+            android:theme="@style/FruitInfoActivityTheme"
+            android:exported="false" />
+        <activity
+            android:name="com.example.materialtest.MaterialTestActivity"
+            android:exported="true"
+            android:label="Fruits"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,18 +35,87 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.networktest.NetworkTestActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"></activity>
+        <activity
+            android:name="com.example.webviewtest.WebViewTestActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <service
+            android:name="com.example.servicetest.MyIntentService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.servicetest.MyServiceActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <service
+            android:name="com.example.servicetest.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.playvideotest.PlayVideoActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.example.playaudiotest.PlayAudioActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.example.cameraalbumtest.CameraAlbumMainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.cameraalbumtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.example.notificationtest.NotificationSecondActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.example.notificationtest.NotificationTestActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <provider
+            android:name="com.example.databasetest.DatabaseProvider"
+            android:authorities="com.example.databasetest.provider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.contentprovidertest.ContactsTestActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.example.databasetest.DatabaseActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
             android:name="com.example.sharedpreferencestest.SharedPreferencesMainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.filepersistencetest.FilePersistenceMainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.broadcastreceiver.broadcastbestpractice.LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <receiver
             android:name="com.example.broadcastreceiver.AnotherBroadcastReceiver"
@@ -66,31 +145,31 @@
         <activity
             android:name="com.example.broadcastreceiver.BroadcastReceiverActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.fragment.NewsActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.fragment.NewsContentActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.fragment.FragmentTestActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.example.chatui.UIBestPracticeActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ComposeTutorial"></activity>
+            android:theme="@style/Theme.ComposeTutorial" />
         <activity
             android:name="com.example.recyclerviewtest.RecyclerviewTestActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
